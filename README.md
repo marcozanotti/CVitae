@@ -11,21 +11,21 @@ count](https://img.shields.io/github/languages/count/marcozanotti/CVitae)
 language](https://img.shields.io/github/languages/top/marcozanotti/CVitae)
 <!-- badges: end -->
 
-Personal repository containing updated Curriculum Vitae and Resume.
+Repository containing updated Curriculum Vitae and Resume.
 
  
 
 ## English
 
--   [CV](https://github.com/marcozanotti/CVitae/blob/main/cv_resume/cv_en.pdf)
--   [Resume](https://github.com/marcozanotti/CVitae/blob/main/cv_resume/resume_en.pdf)
+-   [CV](https://marcozanotti.github.io/CVitae/cv_resume/cv_en.html)
+-   [Resume](https://marcozanotti.github.io/CVitae/cv_resume/resume_en.html)
 
    
 
 ## Italian
 
--   [CV](https://github.com/marcozanotti/CVitae/blob/main/cv_resume/cv_it.pdf)
--   [Resume](https://github.com/marcozanotti/CVitae/blob/main/cv_resume/resume_it.pdf)
+-   [CV](https://marcozanotti.github.io/CVitae/cv_resume/cv_it.html)
+-   [Resume](https://marcozanotti.github.io/CVitae/cv_resume/resume_it.html)
 
    
 
