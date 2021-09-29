@@ -32,9 +32,10 @@ if (params$lang == "en") {
 
 # Read in all data and initialize a CV printer object
 cv <- create_cv_object(
-  data_location = "https://docs.google.com/spreadsheets/d/1FwVp14baq9CeUS2x8nniXf9tBCBc3hJJxbbH3DDZziY/edit?usp=sharing"
+  data_location = "https://docs.google.com/spreadsheets/d/1FwVp14baq9CeUS2x8nniXf9tBCBc3hJJxbbH3DDZziY/edit?usp=sharing", 
+  resume = params$resume
   ) %>% 
-  clean_cv_object(language = params$lang, resume = params$resume)
+  clean_cv_object(language = params$lang)
 ```
 
 ```{r}

@@ -13,7 +13,7 @@ img_clean <- function(img_name = "cvpic.jpeg", img_path = "pics/", format = "png
 # img_clean()
 
 
-create_cv_object <-  function(data_location) {
+create_cv_object <-  function(data_location, resume = FALSE) {
 
   cv <- list()
 
@@ -24,7 +24,14 @@ create_cv_object <-  function(data_location) {
 
   googlesheets4::gs4_deauth()
 
-  cv$experiences <- googlesheets4::read_sheet(data_location, sheet = "experiences", col_types = "c")
+  if (resume) {
+    cv$experiences <- googlesheets4::read_sheet(data_location, sheet = "resume", col_types = "c") %>%
+      dplyr::filter(in_resume == TRUE)
+  } else {
+    cv$experiences <- googlesheets4::read_sheet(data_location, sheet = "cv", col_types = "c") %>%
+      dplyr::filter(in_cv == TRUE)
+  }
+
   cv$text_blocks <- googlesheets4::read_sheet(data_location, sheet = "text_blocks", col_types = "c")
   cv$skills <- googlesheets4::read_sheet(data_location, sheet = "skills", col_types = "c")
   cv$contacts <- googlesheets4::read_sheet(data_location, sheet = "contacts", col_types = "c")
@@ -34,7 +41,7 @@ create_cv_object <-  function(data_location) {
 }
 
 
-clean_cv_object <- function(cv, language = "en", resume = FALSE) {
+clean_cv_object <- function(cv, language = "en") {
 
   extract_year <- function(dates) {
     date_year <- stringr::str_extract(dates, "(20|19)[0-9]{2}")
@@ -88,14 +95,6 @@ clean_cv_object <- function(cv, language = "en", resume = FALSE) {
     dplyr::filter(lang == language)
   cv$skills <- cv$skills %>%
     dplyr::filter(lang == language)
-
-  if (resume) {
-    cv$experiences <- cv$experiences %>%
-      dplyr::filter(in_resume == TRUE)
-  } else {
-    cv$experiences <- cv$experiences %>%
-      dplyr::filter(in_cv == TRUE)
-  }
 
   return(cv)
 
