@@ -101,7 +101,7 @@ clean_cv_object <- function(cv, language = "en") {
 }
 
 
-print_experience <- function(cv, section_id){
+print_experience <- function(cv, section_id, n_top = NULL, n_down = NULL){
 
   glue_template <- "
 ### {title}
@@ -115,9 +115,29 @@ print_experience <- function(cv, section_id){
 {description}
 \n\n\n"
 
-  dplyr::filter(cv$experiences, section == section_id) %>%
-    glue::glue_data(glue_template) %>%
-    print()
+  if (is.null(n_top) & is.null(n_down)) {
+    cv$experiences %>%
+      dplyr::filter(section == section_id) %>%
+      glue::glue_data(glue_template) %>%
+      print()
+  } else if (!is.null(n_top) & is.null(n_down)) {
+    cv$experiences %>%
+      dplyr::filter(section == section_id) %>%
+      dplyr::slice_head(n = n_top) %>%
+      glue::glue_data(glue_template) %>%
+      print()
+  } else if (is.null(n_top) & !is.null(n_down)) {
+    cv$experiences %>%
+      dplyr::filter(section == section_id) %>%
+      dplyr::slice_tail(n = n_down) %>%
+      glue::glue_data(glue_template) %>%
+      print()
+  } else {
+
+    stop("n_top and n_down cannot be specified together.")
+
+  }
+
   return(invisible(cv))
 
 }
@@ -135,7 +155,14 @@ print_text_block <- function(cv, section_id){
 }
 
 
-print_skill_bars <- function(cv, section_id, out_of = 5, bar_color = "#969696", bar_background = "#d9d9d9"){
+print_skill_bars <- function(
+  cv,
+  section_ids,
+  resume = FALSE,
+  out_of = 5,
+  bar_color = "#969696",
+  bar_background = "#d9d9d9"
+){
 
     glue_template <-
 "
@@ -144,13 +171,31 @@ print_skill_bars <- function(cv, section_id, out_of = 5, bar_color = "#969696", 
   style = \"background:linear-gradient(to right, {bar_color} {width_percent}%, {bar_background} {width_percent}% 100%)\"
 >{skill}</div>"
 
-  cv$skills %>%
-    dplyr::filter(section == section_id) %>%
-    dplyr::mutate(level = as.numeric(stringr::str_replace_all(level, "\\,", "\\."))) %>%
-    dplyr::arrange(desc(level)) %>%
-    dplyr::mutate(width_percent = round(100 * level / out_of)) %>%
-    glue::glue_data(glue_template) %>%
-    print()
+    if (resume) {
+
+      cv$skills %>%
+        dplyr::filter(section %in% section_ids) %>%
+        dplyr::group_by(section) %>%
+        dplyr::slice_head(n = 1) %>%
+        dplyr::ungroup() %>%
+        dplyr::mutate(level = as.numeric(stringr::str_replace_all(level, "\\,", "\\."))) %>%
+        dplyr::arrange(desc(level)) %>%
+        dplyr::mutate(width_percent = round(100 * level / out_of)) %>%
+        glue::glue_data(glue_template) %>%
+        print()
+
+    } else {
+
+      cv$skills %>%
+        dplyr::filter(section %in% section_ids) %>%
+        dplyr::mutate(level = as.numeric(stringr::str_replace_all(level, "\\,", "\\."))) %>%
+        dplyr::arrange(desc(level)) %>%
+        dplyr::mutate(width_percent = round(100 * level / out_of)) %>%
+        glue::glue_data(glue_template) %>%
+        print()
+
+    }
+
   return(invisible(cv))
 
 }

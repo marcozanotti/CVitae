@@ -25,9 +25,9 @@ library(magrittr) # For the pipe
 source("R/cv_printing_functions.r")
 
 if (params$lang == "en") {
-  Sys.setlocale("LC_ALL", "us")
+  Sys.setlocale("LC_ALL", "en_US.UTF-8")
 } else {
-  Sys.setlocale("LC_ALL", "Italian_Italy.1252")
+  Sys.setlocale("LC_ALL", "it_IT.UTF-8")
 }
 
 # Read in all data and initialize a CV printer object
@@ -52,8 +52,10 @@ if (params$pdf_mode) {
 
 
 
-Aside
+Main
 ================================================================================
+
+::: aside
 
 ```{r contacts}
 if (params$lang == "en") {
@@ -64,6 +66,8 @@ if (params$lang == "en") {
 cv %>% print_contacts()
 ```
 
+&nbsp;  
+
 ```{r statistics}
 if (params$lang == "en") {
   cat("#### Statistics\n")
@@ -73,41 +77,21 @@ if (params$lang == "en") {
 cv %>% print_text_block("statistics_skills_aside")
 ```
 
-```{r programming}
+&nbsp;  
+
+```{r skills}
 if (params$lang == "en") {
-  cat("#### Programming\n")
+  cat("#### Skills\n")
 } else {
-  cat("#### Programmazione\n")
+  cat("#### Conoscenze\n")
 }
-cv %>% print_skill_bars(section_id = "programming")
+cv %>% print_skill_bars(
+  section_ids = c("programming", "dataviz", "database", "versioning", "integration", "cloud", "os"), 
+  resume = TRUE
+)
 ```
 
-```{r versioning}
-if (params$lang == "en") {
-  cat("#### Versioning\n")
-} else {
-  cat("#### Versioning\n")
-}
-cv %>% print_skill_bars(section_id = "versioning")
-```
-
-```{r ci_cd}
-if (params$lang == "en") {
-  cat("#### CI / CD\n")
-} else {
-  cat("#### CI / CD\n")
-}
-cv %>% print_skill_bars(section_id = "integration")
-```
-
-```{r cloud}
-if (params$lang == "en") {
-  cat("#### Cloud\n")
-} else {
-  cat("#### Cloud\n")
-}
-cv %>% print_skill_bars(section_id = "cloud")
-```
+&nbsp;  
 
 ```{r languages}
 if (params$lang == "en") {
@@ -115,8 +99,12 @@ if (params$lang == "en") {
 } else {
   cat("#### Lingue\n")
 }
-cv %>% print_skill_bars(section_id = "language")
+cv %>% print_skill_bars(section_ids = "language")
 ```
+
+&nbsp;  
+
+&nbsp;  
   
 &nbsp;  
     
@@ -139,10 +127,7 @@ if (params$lang == "en") {
 ```
 *`r stringr::str_to_title(format(Sys.time(), '%B %Y'))`*
 
-
-
-Main
-================================================================================
+:::
 
 Marco Zanotti {#title}
 --------------------------------------------------------------------------------
@@ -150,7 +135,6 @@ Marco Zanotti {#title}
 ```{r}
 cv %>% print_text_block("introduction") 
 ```
-
 
 ```{r professional_experience}
 if (params$lang == "en") {
@@ -161,7 +145,6 @@ if (params$lang == "en") {
 cv %>% print_experience("professional_experience")
 ```
 
-
 ```{r teaching_experience}
 if (params$lang == "en") {
   cat("## Teaching Experience {data-icon=chalkboard-teacher}\n")
@@ -171,7 +154,6 @@ if (params$lang == "en") {
 cv %>% print_experience("teaching_experience")
 ```
 
-
 ```{r publications}
 if (params$lang == "en") {
   cat("## Publications {data-icon=book-open}\n")
@@ -180,7 +162,6 @@ if (params$lang == "en") {
 }
 cv %>% print_experience("publication")
 ```
-
 
 ```{r education}
 if (params$lang == "en") {
