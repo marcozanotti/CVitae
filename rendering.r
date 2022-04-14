@@ -20,8 +20,7 @@ rmarkdown::render("cv.rmd", output_file = tmp_html_cv_loc, params = list(pdf_mod
 pagedown::chrome_print(input = tmp_html_cv_loc, output = "cv_resume/cv_it.pdf")
 
 
-
-\# Resume ------------------------------------------------------------------
+# Resume ------------------------------------------------------------------
 
 # * Resume EN -------------------------------------------------------------
 # Knit the HTML version
