@@ -219,13 +219,13 @@ cv %>% print_experience("publication")
 
 &nbsp;  
 
-```{r education}
+```{r speech}
 if (params$lang == "en") {
-  cat("## Education {data-icon=graduation-cap}\n")
+  cat("## Conferences & Seminars {data-icon=tablet}\n")
 } else {
-  cat("## Istruzione {data-icon=graduation-cap}\n")
+  cat("## Conferenze e Seminari {data-icon=tablet}\n")
 }
-cv %>% print_experience("education")
+cv %>% print_experience("speech")
 ```
 
 
@@ -313,6 +313,17 @@ if (params$lang == "en") {
 *`r stringr::str_to_title(format(Sys.time(), '%B %Y'))`*
 
 :::
+
+```{r education}
+if (params$lang == "en") {
+  cat("## Education {data-icon=graduation-cap}\n")
+} else {
+  cat("## Istruzione {data-icon=graduation-cap}\n")
+}
+cv %>% print_experience("education")
+```
+
+&nbsp; 
 
 ```{r certificates}
 if (params$lang == "en") {
