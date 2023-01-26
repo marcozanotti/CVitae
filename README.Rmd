@@ -10,7 +10,7 @@ output: github_document
 ![GitHub top language](https://img.shields.io/github/languages/top/marcozanotti/CVitae)
 <!-- badges: end -->
 
-Repository containing updated Curriculum Vitae and Resume.
+Download here my updated Curriculum Vitae and Resume.
 
 &nbsp;
 
@@ -32,3 +32,4 @@ Repository containing updated Curriculum Vitae and Resume.
 
 ----
 Made with R and [**pagedown**](https://github.com/rstudio/pagedown)  
+Last update `r stringr::str_to_title(format(Sys.time(), '%B %Y'))`
