@@ -62,7 +62,7 @@ Main
 </center>
   
 &nbsp;  
-  
+ 
 ```{r contacts}
 if (params$lang == "en") {
   cat("#### Contacts {#contact}\n")

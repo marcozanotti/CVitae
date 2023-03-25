@@ -39,3 +39,4 @@ rmarkdown::render("resume.rmd", output_file = "cv_resume/resume_it.html", params
 tmp_html_resume_loc <- fs::file_temp(ext = ".html")
 rmarkdown::render("resume.rmd", output_file = tmp_html_resume_loc, params = list(pdf_mode = TRUE, lang = "it"))
 pagedown::chrome_print(input = tmp_html_resume_loc, output = "cv_resume/resume_it.pdf")
+
