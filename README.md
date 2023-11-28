@@ -3,13 +3,8 @@
 
 <!-- badges: start -->
 
-![GitHub last
-commit](https://img.shields.io/github/last-commit/marcozanotti/CVitae)
-![GitHub language
-count](https://img.shields.io/github/languages/count/marcozanotti/CVitae)
-![GitHub top
-language](https://img.shields.io/github/languages/top/marcozanotti/CVitae)
-<!-- badges: end -->
+![](https://img.shields.io/github/last-commit/marcozanotti/CVitae)
+![](https://img.shields.io/badge/language-R-blue) <!-- badges: end -->
 
 Download here my updated Curriculum Vitae and Resume.
 
@@ -32,4 +27,4 @@ Download here my updated Curriculum Vitae and Resume.
 ------------------------------------------------------------------------
 
 Made with R and [**pagedown**](https://github.com/rstudio/pagedown)  
-Last update Gennaio 2023
+Last update Novembre 2023
