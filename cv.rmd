@@ -203,7 +203,7 @@ cv %>% print_skill_bars(section_ids = "os")
 # } else {
 #   cat("## Insegnamento {data-icon=chalkboard-teacher}\n")
 # }
-cv %>% print_experience("teaching_experience", n_down = 2)
+cv %>% print_experience("teaching_experience", n_down = 1)
 ```
   
 &nbsp;  
@@ -226,6 +226,17 @@ if (params$lang == "en") {
   cat("## Conferenze e Seminari {data-icon=tablet}\n")
 }
 cv %>% print_experience("speech")
+```
+
+&nbsp;  
+
+```{r education}
+if (params$lang == "en") {
+  cat("## Education {data-icon=graduation-cap}\n")
+} else {
+  cat("## Istruzione {data-icon=graduation-cap}\n")
+}
+cv %>% print_experience("education")
 ```
 
 
@@ -313,15 +324,6 @@ if (params$lang == "en") {
 *`r stringr::str_to_title(format(Sys.time(), '%B %Y'))`*
 
 :::
-
-```{r education}
-if (params$lang == "en") {
-  cat("## Education {data-icon=graduation-cap}\n")
-} else {
-  cat("## Istruzione {data-icon=graduation-cap}\n")
-}
-cv %>% print_experience("education")
-```
 
 &nbsp; 
 
