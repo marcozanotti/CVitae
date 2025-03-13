@@ -68,27 +68,13 @@ cv %>% print_contacts()
 
 &nbsp;  
 
-```{r statistics}
+```{r core}
 if (params$lang == "en") {
-  cat("#### Statistics\n")
+  cat("#### Core Skills\n")
 } else {
-  cat("#### Statistica\n")
+  cat("#### Conoscenza Principali\n")
 }
 cv %>% print_text_block("statistics_skills_aside")
-```
-
-&nbsp;  
-
-```{r skills}
-if (params$lang == "en") {
-  cat("#### Skills\n")
-} else {
-  cat("#### Conoscenze\n")
-}
-cv %>% print_skill_bars(
-  section_ids = c("programming", "dataviz", "database", "versioning", "integration", "cloud", "os"), 
-  resume = TRUE
-)
 ```
 
 &nbsp;  
@@ -104,6 +90,20 @@ cv %>% print_skill_bars(section_ids = "language")
 
 &nbsp;  
 
+```{r skills}
+if (params$lang == "en") {
+  cat("#### Skills\n")
+} else {
+  cat("#### Conoscenze\n")
+}
+cv %>% print_skill_bars(
+  section_ids = c("programming", "dataviz", "database", "versioning", "integration", "cloud", "pm", "os"), 
+  resume = TRUE
+)
+```
+
+&nbsp;  
+
 &nbsp;  
   
 &nbsp;  
@@ -113,13 +113,13 @@ cv %>% print_skill_bars(section_ids = "language")
 ```{r disclaimer}
 if (params$lang == "en") {
   cat(
-"Made with the R package [**pagedown**](https://github.com/rstudio/pagedown).  
+"Made with R and [**pagedown**](https://github.com/rstudio/pagedown).  
   
 *Last updated on *"
 )
 } else {
   cat(
-"Creato con il pacchetto R [**pagedown**](https://github.com/rstudio/pagedown).  
+"Creato con R e [**pagedown**](https://github.com/rstudio/pagedown).  
   
 *Aggiornato a *"
 )
@@ -152,15 +152,6 @@ if (params$lang == "en") {
   cat("## Insegnamento {data-icon=chalkboard-teacher}\n")
 }
 cv %>% print_experience("teaching_experience")
-```
-
-```{r publications}
-if (params$lang == "en") {
-  cat("## Publications {data-icon=book-open}\n")
-} else {
-  cat("## Pubblicazioni {data-icon=book-open}\n")
-}
-cv %>% print_experience("publication")
 ```
 
 ```{r education}

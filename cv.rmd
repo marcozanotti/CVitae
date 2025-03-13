@@ -74,35 +74,24 @@ cv %>% print_contacts()
   
 &nbsp;  
   
-```{r statistics}
+```{r core}
 if (params$lang == "en") {
-  cat("#### Statistics\n")
+  cat("#### Core Skills\n")
 } else {
-  cat("#### Statistica\n")
+  cat("#### Conoscenze Principali\n")
 }
 cv %>% print_text_block("statistics_skills_aside")
 ```
-  
-&nbsp;  
-  
-```{r programming}
-if (params$lang == "en") {
-  cat("#### Programming\n")
-} else {
-  cat("#### Programmazione\n")
-}
-cv %>% print_skill_bars(section_ids = "programming")
-```
 
 &nbsp;  
-  
-```{r dataviz}
+
+```{r languages}
 if (params$lang == "en") {
-  cat("#### BI & Visualization\n")
+  cat("#### Languages\n")
 } else {
-  cat("#### BI & Visualization\n")
+  cat("#### Lingue\n")
 }
-cv %>% print_skill_bars(section_ids = "dataviz")
+cv %>% print_skill_bars(section_ids = "language")
 ```
 
 :::
@@ -123,24 +112,36 @@ if (params$lang == "en") {
 cv %>% print_experience("professional_experience")
 ```
 
-&nbsp;  
 
-```{r teaching_experience}
-if (params$lang == "en") {
-  cat("## Teaching Experience {data-icon=chalkboard-teacher}\n")
-} else {
-  cat("## Insegnamento {data-icon=chalkboard-teacher}\n")
-}
-cv %>% print_experience("teaching_experience", n_top = 1)
-```
-  
-  
-  
-\newpage  
+
+
+\newpage
 
 
 
 ::: aside
+
+```{r programming}
+if (params$lang == "en") {
+  cat("#### Programming\n")
+} else {
+  cat("#### Programmazione\n")
+}
+cv %>% print_skill_bars(section_ids = "programming")
+```
+
+&nbsp;  
+  
+```{r dataviz}
+if (params$lang == "en") {
+  cat("#### BI & Visualization\n")
+} else {
+  cat("#### BI & Visualization\n")
+}
+cv %>% print_skill_bars(section_ids = "dataviz")
+```
+
+&nbsp;  
 
 ```{r database}
 if (params$lang == "en") {
@@ -151,7 +152,7 @@ if (params$lang == "en") {
 cv %>% print_skill_bars(section_ids = "database")
 ```
 
-&nbsp;
+&nbsp;  
 
 ```{r versioning}
 if (params$lang == "en") {
@@ -172,9 +173,9 @@ if (params$lang == "en") {
 }
 cv %>% print_skill_bars(section_ids = "integration")
 ```
-  
+
 &nbsp;  
-  
+
 ```{r cloud}
 if (params$lang == "en") {
   cat("#### Cloud\n")
@@ -183,30 +184,19 @@ if (params$lang == "en") {
 }
 cv %>% print_skill_bars(section_ids = "cloud")
 ```
-    
-&nbsp;  
-  
-```{r os}
-if (params$lang == "en") {
-  cat("#### Operating Systems\n")
-} else {
-  cat("#### Sistemi Operativi\n")
-}
-cv %>% print_skill_bars(section_ids = "os")
-```
 
 :::
 
-```{r teaching_experience2}
-# if (params$lang == "en") {
-#   cat("## Teaching Experience {data-icon=chalkboard-teacher}\n")
-# } else {
-#   cat("## Insegnamento {data-icon=chalkboard-teacher}\n")
-# }
-cv %>% print_experience("teaching_experience", n_down = 1)
+```{r teaching_experience}
+if (params$lang == "en") {
+  cat("## Teaching Experience {data-icon=chalkboard-teacher}\n")
+} else {
+  cat("## Insegnamento {data-icon=chalkboard-teacher}\n")
+}
+cv %>% print_experience("teaching_experience")
 ```
   
-&nbsp;  
+&nbsp; 
 
 ```{r publications}
 if (params$lang == "en") {
@@ -228,33 +218,38 @@ if (params$lang == "en") {
 cv %>% print_experience("speech")
 ```
 
-&nbsp;  
-
-```{r education}
-if (params$lang == "en") {
-  cat("## Education {data-icon=graduation-cap}\n")
-} else {
-  cat("## Istruzione {data-icon=graduation-cap}\n")
-}
-cv %>% print_experience("education")
-```
-
 
 
 \newpage
 
 
+ 
 
 ::: aside
 
-```{r languages}
+```{r pm}
 if (params$lang == "en") {
-  cat("#### Languages\n")
+  cat("#### Project Management\n")
 } else {
-  cat("#### Lingue\n")
+  cat("#### Project Management\n")
 }
-cv %>% print_skill_bars(section_ids = "language")
+cv %>% print_skill_bars(section_ids = "pm")
 ```
+    
+&nbsp;  
+  
+```{r os}
+if (params$lang == "en") {
+  cat("#### Operating Systems\n")
+} else {
+  cat("#### Sistemi Operativi\n")
+}
+cv %>% print_skill_bars(section_ids = "os")
+```
+
+&nbsp;
+
+&nbsp;
 
 &nbsp;
 
@@ -271,6 +266,12 @@ if (params$lang == "en") {
 cv %>% print_text_block("sports_and_hobbies_aside")
 ```
 
+&nbsp;
+
+&nbsp;  
+
+&nbsp;  
+
 &nbsp;  
   
 &nbsp;  
@@ -284,38 +285,21 @@ cv %>% print_text_block("sports_and_hobbies_aside")
 &nbsp;  
   
 &nbsp;  
-  
-&nbsp;  
-    
-&nbsp;  
-  
-&nbsp;  
 
 &nbsp;  
   
-&nbsp;  
-  
-&nbsp;  
-  
-&nbsp;  
-  
-&nbsp;  
-    
-&nbsp;  
-  
-&nbsp;  
-  
+&nbsp; 
 
 ```{r disclaimer}
 if (params$lang == "en") {
   cat(
-"Made with the R package [**pagedown**](https://github.com/rstudio/pagedown).  
+"Made with R and [**pagedown**](https://github.com/rstudio/pagedown).  
   
 *Last updated on *"
 )
 } else {
   cat(
-"Creato con il pacchetto R [**pagedown**](https://github.com/rstudio/pagedown).  
+"Creato con R e [**pagedown**](https://github.com/rstudio/pagedown).  
   
 *Aggiornato a *"
 )
@@ -324,6 +308,15 @@ if (params$lang == "en") {
 *`r stringr::str_to_title(format(Sys.time(), '%B %Y'))`*
 
 :::
+
+```{r education}
+if (params$lang == "en") {
+  cat("## Education {data-icon=graduation-cap}\n")
+} else {
+  cat("## Istruzione {data-icon=graduation-cap}\n")
+}
+cv %>% print_experience("education")
+```
 
 &nbsp; 
 
