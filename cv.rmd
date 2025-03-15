@@ -80,7 +80,7 @@ if (params$lang == "en") {
 } else {
   cat("#### Conoscenze Principali\n")
 }
-cv %>% print_text_block("statistics_skills_aside")
+cv %>% print_text_block("core_skills_aside")
 ```
 
 &nbsp;  
@@ -112,13 +112,6 @@ if (params$lang == "en") {
 cv %>% print_experience("professional_experience")
 ```
 
-
-
-
-\newpage
-
-
-
 ::: aside
 
 ```{r programming}
@@ -130,8 +123,6 @@ if (params$lang == "en") {
 cv %>% print_skill_bars(section_ids = "programming")
 ```
 
-&nbsp;  
-  
 ```{r dataviz}
 if (params$lang == "en") {
   cat("#### BI & Visualization\n")
@@ -140,8 +131,6 @@ if (params$lang == "en") {
 }
 cv %>% print_skill_bars(section_ids = "dataviz")
 ```
-
-&nbsp;  
 
 ```{r database}
 if (params$lang == "en") {
@@ -152,8 +141,6 @@ if (params$lang == "en") {
 cv %>% print_skill_bars(section_ids = "database")
 ```
 
-&nbsp;  
-
 ```{r versioning}
 if (params$lang == "en") {
   cat("#### Versioning\n")
@@ -162,8 +149,6 @@ if (params$lang == "en") {
 }
 cv %>% print_skill_bars(section_ids = "versioning")
 ```
-
-&nbsp;  
 
 ```{r ci_cd}
 if (params$lang == "en") {
@@ -174,8 +159,6 @@ if (params$lang == "en") {
 cv %>% print_skill_bars(section_ids = "integration")
 ```
 
-&nbsp;  
-
 ```{r cloud}
 if (params$lang == "en") {
   cat("#### Cloud\n")
@@ -185,7 +168,27 @@ if (params$lang == "en") {
 cv %>% print_skill_bars(section_ids = "cloud")
 ```
 
+```{r pm}
+if (params$lang == "en") {
+  cat("#### Project Management\n")
+} else {
+  cat("#### Project Management\n")
+}
+cv %>% print_skill_bars(section_ids = "pm")
+```
+
+```{r os}
+if (params$lang == "en") {
+  cat("#### Operating Systems\n")
+} else {
+  cat("#### Sistemi Operativi\n")
+}
+cv %>% print_skill_bars(section_ids = "os")
+```
+
 :::
+
+&nbsp;  
 
 ```{r teaching_experience}
 if (params$lang == "en") {
@@ -195,8 +198,8 @@ if (params$lang == "en") {
 }
 cv %>% print_experience("teaching_experience")
 ```
-  
-&nbsp; 
+
+&nbsp;  
 
 ```{r publications}
 if (params$lang == "en") {
@@ -207,44 +210,22 @@ if (params$lang == "en") {
 cv %>% print_experience("publication")
 ```
 
-&nbsp;  
-
-```{r speech}
-if (params$lang == "en") {
-  cat("## Conferences & Seminars {data-icon=tablet}\n")
-} else {
-  cat("## Conferenze e Seminari {data-icon=tablet}\n")
-}
-cv %>% print_experience("speech")
-```
-
 
 
 \newpage
 
 
- 
 
 ::: aside
 
-```{r pm}
+```{r certificates}
 if (params$lang == "en") {
-  cat("#### Project Management\n")
+  cat("#### Certificates {data-icon=award}\n")
 } else {
-  cat("#### Project Management\n")
+  cat("#### Certificazioni {data-icon=award}\n")
 }
-cv %>% print_skill_bars(section_ids = "pm")
-```
-    
-&nbsp;  
-  
-```{r os}
-if (params$lang == "en") {
-  cat("#### Operating Systems\n")
-} else {
-  cat("#### Sistemi Operativi\n")
-}
-cv %>% print_skill_bars(section_ids = "os")
+# cv %>% print_experience("certification")
+cv %>% print_text_block("certificates_aside")
 ```
 
 &nbsp;
@@ -277,8 +258,6 @@ cv %>% print_text_block("sports_and_hobbies_aside")
 &nbsp;  
   
 &nbsp;  
-
-&nbsp;  
   
 &nbsp;  
   
@@ -286,9 +265,7 @@ cv %>% print_text_block("sports_and_hobbies_aside")
   
 &nbsp;  
 
-&nbsp;  
-  
-&nbsp; 
+<center>
 
 ```{r disclaimer}
 if (params$lang == "en") {
@@ -307,7 +284,21 @@ if (params$lang == "en") {
 ```
 *`r stringr::str_to_title(format(Sys.time(), '%B %Y'))`*
 
+![](pics/sign_new.png){width=65%}
+</center>
+
 :::
+
+```{r speech}
+if (params$lang == "en") {
+  cat("## Conferences & Seminars {data-icon=tablet}\n")
+} else {
+  cat("## Conferenze e Seminari {data-icon=tablet}\n")
+}
+cv %>% print_experience("speech")
+```
+
+&nbsp;  
 
 ```{r education}
 if (params$lang == "en") {
@@ -316,17 +307,6 @@ if (params$lang == "en") {
   cat("## Istruzione {data-icon=graduation-cap}\n")
 }
 cv %>% print_experience("education")
-```
-
-&nbsp; 
-
-```{r certificates}
-if (params$lang == "en") {
-  cat("## Certificates {data-icon=award}\n")
-} else {
-  cat("## Certificazioni {data-icon=award}\n")
-}
-cv %>% print_experience("certification")
 ```
 
 &nbsp;  

@@ -1,11 +1,13 @@
 # Functions that create the CV
 
 img_clean <- function(img_name = "cvpic.jpeg", img_path = "pics/", format = "png") {
-
+  # "#bdd7e7"
+  # fuzz = 50 per sign
   img_path %>%
     paste0(img_name) %>%
     magick::image_read() %>%
     magick::image_fill(color = "transparent", refcolor = "white", fuzz = 4, point = "+1+1") %>%
+    # magick::image_background(color = "#bdd7e7") %>%
     magick::image_crop(geometry = magick::geometry_area(1500, 1850, 0, 0)) %>%
     magick::image_write(path = paste0(img_path, gsub("\\.\\w+", "_new\\.", img_name), format), format = format)
 
@@ -174,10 +176,15 @@ print_skill_bars <- function(
     if (resume) {
 
       cv$skills %>%
-        dplyr::filter(section %in% section_ids) %>%
-        dplyr::group_by(section) %>%
-        dplyr::slice_head(n = 1) %>%
-        dplyr::ungroup() %>%
+        dplyr::filter(skill %in% c('R', 'Python')) %>%
+        dplyr::bind_rows(
+          cv$skills %>%
+            dplyr::filter(section %in% section_ids) %>%
+            dplyr::group_by(section) %>%
+            dplyr::slice_head(n = 1) %>%
+            dplyr::ungroup()
+        ) %>%
+        dplyr::distinct() %>%
         dplyr::mutate(level = as.numeric(stringr::str_replace_all(level, "\\,", "\\."))) %>%
         dplyr::arrange(desc(level)) %>%
         dplyr::mutate(width_percent = round(100 * level / out_of)) %>%

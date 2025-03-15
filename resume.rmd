@@ -74,7 +74,7 @@ if (params$lang == "en") {
 } else {
   cat("#### Conoscenza Principali\n")
 }
-cv %>% print_text_block("statistics_skills_aside")
+cv %>% print_text_block("core_skills_aside")
 ```
 
 &nbsp;  
@@ -97,18 +97,16 @@ if (params$lang == "en") {
   cat("#### Conoscenze\n")
 }
 cv %>% print_skill_bars(
-  section_ids = c("programming", "dataviz", "database", "versioning", "integration", "cloud", "pm", "os"), 
+  section_ids = c("programming", "dataviz", "database", "versioning", "integration", "cloud", "pm"), 
   resume = TRUE
 )
 ```
 
 &nbsp;  
-
-&nbsp;  
-  
-&nbsp;  
     
 &nbsp;  
+
+<center>
   
 ```{r disclaimer}
 if (params$lang == "en") {
@@ -126,6 +124,9 @@ if (params$lang == "en") {
 }
 ```
 *`r stringr::str_to_title(format(Sys.time(), '%B %Y'))`*
+
+![](pics/sign_new.png){width=65%}
+</center>
 
 :::
 
