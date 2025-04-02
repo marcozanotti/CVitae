@@ -111,7 +111,7 @@ cv %>% print_skill_bars(
 ```{r disclaimer}
 if (params$lang == "en") {
   cat(
-"Made with R and [**pagedown**](https://github.com/rstudio/pagedown).  
+"Made with R and [**pagedown**](https://github.com/rstudio/pagedown)  
   
 *Last updated on *"
 )

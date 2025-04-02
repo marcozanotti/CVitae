@@ -270,7 +270,7 @@ cv %>% print_text_block("sports_and_hobbies_aside")
 ```{r disclaimer}
 if (params$lang == "en") {
   cat(
-"Made with R and [**pagedown**](https://github.com/rstudio/pagedown).  
+"Made with R and [**pagedown**](https://github.com/rstudio/pagedown)  
   
 *Last updated on *"
 )
