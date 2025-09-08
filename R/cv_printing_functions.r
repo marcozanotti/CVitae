@@ -15,7 +15,34 @@ img_clean <- function(img_name = "cvpic.jpeg", img_path = "pics/", format = "png
 # img_clean()
 
 
-create_cv_object <-  function(data_location, resume = FALSE) {
+# create_cv_object <-  function(data_location, resume = FALSE) {
+#
+#   cv <- list()
+#
+#   is_google_sheets_location <- stringr::str_detect(data_location, "docs\\.google\\.com")
+#   if (!is_google_sheets_location) {
+#     stop("No google sheet location.", call. = FALSE)
+#   }
+#
+#   googlesheets4::gs4_deauth()
+#
+#   if (resume) {
+#     cv$experiences <- googlesheets4::read_sheet(data_location, sheet = "resume", col_types = "c") %>%
+#       dplyr::filter(in_resume == TRUE)
+#   } else {
+#     cv$experiences <- googlesheets4::read_sheet(data_location, sheet = "cv", col_types = "c") %>%
+#       dplyr::filter(in_cv == TRUE)
+#   }
+#
+#   cv$text_blocks <- googlesheets4::read_sheet(data_location, sheet = "text_blocks", col_types = "c")
+#   cv$skills <- googlesheets4::read_sheet(data_location, sheet = "skills", col_types = "c")
+#   cv$contacts <- googlesheets4::read_sheet(data_location, sheet = "contacts", col_types = "c")
+#
+#   return(cv)
+#
+# }
+
+create_cv_object <-  function(data_location, sheet = "cv") {
 
   cv <- list()
 
@@ -26,12 +53,14 @@ create_cv_object <-  function(data_location, resume = FALSE) {
 
   googlesheets4::gs4_deauth()
 
-  if (resume) {
-    cv$experiences <- googlesheets4::read_sheet(data_location, sheet = "resume", col_types = "c") %>%
+  if (grepl("^cv", sheet)) {
+    cv$experiences <- googlesheets4::read_sheet(data_location, sheet = sheet, col_types = "c") %>%
+      dplyr::filter(in_cv == TRUE)
+  } else if (sheet == "resume") {
+    cv$experiences <- googlesheets4::read_sheet(data_location, sheet = sheet, col_types = "c") %>%
       dplyr::filter(in_resume == TRUE)
   } else {
-    cv$experiences <- googlesheets4::read_sheet(data_location, sheet = "cv", col_types = "c") %>%
-      dplyr::filter(in_cv == TRUE)
+    stop("Sheet must be either 'cv' or 'resume'.", call. = FALSE)
   }
 
   cv$text_blocks <- googlesheets4::read_sheet(data_location, sheet = "text_blocks", col_types = "c")

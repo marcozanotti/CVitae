@@ -8,7 +8,7 @@ params:
   lang:
     value: 'en'
   sheet:
-    value: 'cv'
+    value: 'cv_uni'
 output:
   pagedown::html_resume:
     css: ['dd_cv.css', 'resume']
