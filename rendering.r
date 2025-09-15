@@ -4,16 +4,11 @@
 # * CV EN -----------------------------------------------------------------
 # Knit the HTML version
 rmarkdown::render("cv.rmd", output_file = "cv_resume/cv_en.html", params = list(pdf_mode = FALSE, lang = "en"))
-rmarkdown::render("cv_uni.rmd", output_file = "cv_resume/cv_uni_en.html", params = list(pdf_mode = FALSE, lang = "en"))
 
 # Knit the PDF version
 tmp_html_cv_loc <- fs::file_temp(ext = ".html")
 rmarkdown::render("cv.rmd", output_file = tmp_html_cv_loc, params = list(pdf_mode = TRUE, lang = "en"))
 pagedown::chrome_print(input = tmp_html_cv_loc, output = "cv_resume/cv_en.pdf")
-
-tmp_html_cv_loc <- fs::file_temp(ext = ".html")
-rmarkdown::render("cv_uni.rmd", output_file = tmp_html_cv_loc, params = list(pdf_mode = TRUE, lang = "en"))
-pagedown::chrome_print(input = tmp_html_cv_loc, output = "cv_resume/cv_uni_en.pdf")
 
 # * CV IT -----------------------------------------------------------------
 # Knit the HTML version
@@ -46,8 +41,18 @@ rmarkdown::render("resume.rmd", output_file = tmp_html_resume_loc, params = list
 pagedown::chrome_print(input = tmp_html_resume_loc, output = "cv_resume/resume_it.pdf")
 
 
+# CV UNIVERISTY -----------------------------------------------------------
+rmarkdown::render("cv_uni.rmd", output_file = "cv_resume/cv_uni_en.html", params = list(pdf_mode = FALSE, lang = "en"))
+
+tmp_html_cv_loc <- fs::file_temp(ext = ".html")
+rmarkdown::render("cv_uni.rmd", output_file = tmp_html_cv_loc, params = list(pdf_mode = TRUE, lang = "en"))
+pagedown::chrome_print(input = tmp_html_cv_loc, output = "cv_resume/cv_uni_en.pdf")
+
+
 # README ------------------------------------------------------------------
 rmarkdown::render("README.Rmd", output_file = "README.md")
+
+
 
 
 

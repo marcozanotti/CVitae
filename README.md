@@ -27,4 +27,4 @@ Download here my updated Curriculum Vitae and Resume.
 ------------------------------------------------------------------------
 
 Made with R and [**pagedown**](https://github.com/rstudio/pagedown)  
-Last update Settembre 2025
+Last update September 2025
