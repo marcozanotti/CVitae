@@ -15,7 +15,7 @@ output:
     self_contained: true
 ---
 
-```{r, include=FALSE}
+```{r setup, include=FALSE}
 knitr::opts_chunk$set(
   results = 'asis', 
   echo = FALSE
@@ -30,15 +30,6 @@ if (params$lang == "en") {
   Sys.setlocale("LC_ALL", "it_IT.UTF-8")
 }
 
-# Read in all data and initialize a CV printer object
-cv <- create_cv_object(
-  data_location = "https://docs.google.com/spreadsheets/d/1FwVp14baq9CeUS2x8nniXf9tBCBc3hJJxbbH3DDZziY/edit?usp=sharing", 
-  sheet = params$sheet
-  ) %>% 
-  clean_cv_object(language = params$lang)
-```
-
-```{r}
 # When in pdf export mode the little dots are unaligned, so fix that with some conditional CSS.
 if (params$pdf_mode) {
     cat("
@@ -48,6 +39,13 @@ if (params$pdf_mode) {
 }
 </style>")
 }
+
+# Read in all data and initialize a CV printer object
+cv <- create_cv_object(
+  data_location = "https://docs.google.com/spreadsheets/d/1FwVp14baq9CeUS2x8nniXf9tBCBc3hJJxbbH3DDZziY/edit?usp=sharing", 
+  sheet = params$sheet
+  ) %>% 
+  clean_cv_object(language = params$lang)
 ```
 
 
@@ -236,8 +234,6 @@ cv %>% print_text_block("certificates_aside")
 
 &nbsp;
 
-&nbsp;
-
 ```{r sports_hobbies}
 if (params$lang == "en") {
   cat("#### Spoorts & Hobbies\n")
@@ -246,8 +242,6 @@ if (params$lang == "en") {
 }
 cv %>% print_text_block("sports_and_hobbies_aside")
 ```
-
-&nbsp;  
 
 &nbsp;  
   
@@ -294,7 +288,8 @@ if (params$lang == "en") {
 cv %>% print_experience("award")
 ```
 
-&nbsp;
+<!-- 
+&nbsp; 
 
 ```{r speech}
 if (params$lang == "en") {
@@ -304,6 +299,7 @@ if (params$lang == "en") {
 }
 cv %>% print_experience("speech")
 ```
+-->
 
 &nbsp;  
 
