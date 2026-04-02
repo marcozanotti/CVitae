@@ -197,15 +197,15 @@ if (params$lang == "en") {
 cv %>% print_experience("teaching_experience")
 ```
 
-&nbsp;  
+&nbsp; 
 
-```{r publications}
+```{r awards}
 if (params$lang == "en") {
-  cat("## Publications {data-icon=book-open}\n")
+  cat("## Awards {data-icon=award}\n")
 } else {
-  cat("## Pubblicazioni {data-icon=book-open}\n")
+  cat("## Premi {data-icon=award}\n")
 }
-cv %>% print_experience("publication")
+cv %>% print_experience("award")
 ```
 
 
@@ -279,30 +279,6 @@ if (params$lang == "en") {
 
 :::
 
-```{r awards}
-if (params$lang == "en") {
-  cat("## Awards {data-icon=award}\n")
-} else {
-  cat("## Premi {data-icon=award}\n")
-}
-cv %>% print_experience("award")
-```
-
-<!-- 
-&nbsp; 
-
-```{r speech}
-if (params$lang == "en") {
-  cat("## Conferences & Seminars {data-icon=tablet}\n")
-} else {
-  cat("## Conferenze e Seminari {data-icon=tablet}\n")
-}
-cv %>% print_experience("speech")
-```
--->
-
-&nbsp;  
-
 ```{r education}
 if (params$lang == "en") {
   cat("## Education {data-icon=graduation-cap}\n")
@@ -322,3 +298,33 @@ if (params$lang == "en") {
 }
 cv %>% print_experience("personal_competence")
 ```
+
+
+
+\newpage
+
+
+::: aside
+
+:::
+
+```{r publications}
+if (params$lang == "en") {
+  cat("## Publications {data-icon=book-open}\n")
+} else {
+  cat("## Pubblicazioni {data-icon=book-open}\n")
+}
+cv %>% print_experience("publication")
+```
+
+&nbsp; 
+
+```{r speech}
+if (params$lang == "en") {
+  cat("## Conferences & Seminars {data-icon=tablet}\n")
+} else {
+  cat("## Conferenze e Seminari {data-icon=tablet}\n")
+}
+cv %>% print_experience("speech")
+```
+
