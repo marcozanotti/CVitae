@@ -40,7 +40,12 @@ if (params$pdf_mode) {
 </style>")
 }
 
+# add this after the params$pdf_mode block in the setup chunk
+# small inline favicon to prevent a /favicon.ico 404 during chrome_print
+cat('<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVQYV2NgYAAAAAMAAWgmWQ0AAAAASUVORK5CYII=">\n')
+
 # Read in all data and initialize a CV printer object
+# params <- list(lang = 'en', sheet = 'cv')
 cv <- create_cv_object(
   data_location = "https://docs.google.com/spreadsheets/d/1FwVp14baq9CeUS2x8nniXf9tBCBc3hJJxbbH3DDZziY/edit?usp=sharing", 
   sheet = params$sheet
@@ -107,8 +112,12 @@ if (params$lang == "en") {
 } else {
   cat("## Esperienza Professionale {data-icon=suitcase}\n")
 }
-cv %>% print_experience("professional_experience")
+cv %>% print_experience("professional_experience", n_top = 4)
 ```
+
+
+\newpage
+
 
 ::: aside
 
@@ -185,6 +194,10 @@ cv %>% print_skill_bars(section_ids = "os")
 ```
 
 :::
+
+```{r professional_experience_2}
+cv %>% print_experience("professional_experience", n_down = 2)
+```
 
 &nbsp;  
 
