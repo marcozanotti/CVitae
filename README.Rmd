@@ -30,5 +30,4 @@ Download here my updated Curriculum Vitae and Resume.
 &nbsp;
 
 ----
-Made with R and [**pagedown**](https://github.com/rstudio/pagedown)  
 Last update `r stringr::str_to_title(format(Sys.time(), '%B %Y'))`

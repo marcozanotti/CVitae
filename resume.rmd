@@ -97,12 +97,10 @@ if (params$lang == "en") {
   cat("#### Conoscenze\n")
 }
 cv %>% print_skill_bars(
-  section_ids = c("programming", "dataviz", "database", "versioning", "integration", "cloud", "pm"), 
+  section_ids = c("programming", "ai", "dataviz", "database", "versioning", "integration", "cloud", "pm"), 
   resume = TRUE
 )
 ```
-
-&nbsp;  
     
 &nbsp;  
 
@@ -111,15 +109,11 @@ cv %>% print_skill_bars(
 ```{r disclaimer}
 if (params$lang == "en") {
   cat(
-"Made with R and [**pagedown**](https://github.com/rstudio/pagedown)  
-  
-*Last updated on *"
+"*Last updated on *"
 )
 } else {
   cat(
-"Creato con R e [**pagedown**](https://github.com/rstudio/pagedown).  
-  
-*Aggiornato a *"
+"*Aggiornato a *"
 )
 }
 ```

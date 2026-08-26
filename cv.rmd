@@ -65,7 +65,7 @@ Main
 </center>
   
 &nbsp;  
- 
+
 ```{r contacts}
 if (params$lang == "en") {
   cat("#### Contacts {#contact}\n")
@@ -128,6 +128,15 @@ if (params$lang == "en") {
   cat("#### Programmazione\n")
 }
 cv %>% print_skill_bars(section_ids = "programming")
+```
+
+```{r ai}
+if (params$lang == "en") {
+  cat("#### AI Tools\n")
+} else {
+  cat("#### AI Tools\n")
+}
+cv %>% print_skill_bars(section_ids = "ai")
 ```
 
 ```{r dataviz}
@@ -273,15 +282,11 @@ cv %>% print_text_block("sports_and_hobbies_aside")
 ```{r disclaimer}
 if (params$lang == "en") {
   cat(
-"Made with R and [**pagedown**](https://github.com/rstudio/pagedown)  
-  
-*Last updated on *"
+"*Last updated on *"
 )
 } else {
   cat(
-"Creato con R e [**pagedown**](https://github.com/rstudio/pagedown).  
-  
-*Aggiornato a *"
+"*Aggiornato a *"
 )
 }
 ```

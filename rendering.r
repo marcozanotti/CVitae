@@ -20,14 +20,14 @@ rmarkdown::render(
 )
 
 # Knit the PDF version
-tmp_html_cv_loc <- fs::file_temp(ext = ".html")
-rmarkdown::render(
-    "cv.rmd",
-    output_file = tmp_html_cv_loc,
-    params = list(pdf_mode = TRUE, lang = "en")
-)
-favicon_fix()
-pagedown::chrome_print(input = tmp_html_cv_loc, output = "cv_resume/cv_en.pdf")
+# tmp_html_cv_loc <- fs::file_temp(ext = ".html")
+# rmarkdown::render(
+#     "cv.rmd",
+#     output_file = tmp_html_cv_loc,
+#     params = list(pdf_mode = TRUE, lang = "en")
+# )
+# favicon_fix()
+# pagedown::chrome_print(input = tmp_html_cv_loc, output = "cv_resume/cv_en.pdf")
 
 # * CV IT -----------------------------------------------------------------
 # Knit the HTML version
@@ -38,15 +38,14 @@ rmarkdown::render(
 )
 
 # Knit the PDF version
-tmp_html_cv_loc <- fs::file_temp(ext = ".html")
-rmarkdown::render(
-    "cv.rmd",
-    output_file = tmp_html_cv_loc,
-    params = list(pdf_mode = TRUE, lang = "it")
-)
-favicon_fix()
-pagedown::chrome_print(input = tmp_html_cv_loc, output = "cv_resume/cv_it.pdf")
-
+# tmp_html_cv_loc <- fs::file_temp(ext = ".html")
+# rmarkdown::render(
+#     "cv.rmd",
+#     output_file = tmp_html_cv_loc,
+#     params = list(pdf_mode = TRUE, lang = "it")
+# )
+# favicon_fix()
+# pagedown::chrome_print(input = tmp_html_cv_loc, output = "cv_resume/cv_it.pdf")
 
 # Resume ------------------------------------------------------------------
 
@@ -59,17 +58,17 @@ rmarkdown::render(
 )
 
 # Knit the PDF version
-tmp_html_resume_loc <- fs::file_temp(ext = ".html")
-rmarkdown::render(
-    "resume.rmd",
-    output_file = tmp_html_resume_loc,
-    params = list(pdf_mode = TRUE, lang = "en")
-)
-favicon_fix()
-pagedown::chrome_print(
-    input = tmp_html_resume_loc,
-    output = "cv_resume/resume_en.pdf"
-)
+# tmp_html_resume_loc <- fs::file_temp(ext = ".html")
+# rmarkdown::render(
+#     "resume.rmd",
+#     output_file = tmp_html_resume_loc,
+#     params = list(pdf_mode = TRUE, lang = "en")
+# )
+# favicon_fix()
+# pagedown::chrome_print(
+#     input = tmp_html_resume_loc,
+#     output = "cv_resume/resume_en.pdf"
+# )
 
 # * Resume IT -------------------------------------------------------------
 # Knit the HTML version
@@ -80,18 +79,17 @@ rmarkdown::render(
 )
 
 # Knit the PDF version
-tmp_html_resume_loc <- fs::file_temp(ext = ".html")
-rmarkdown::render(
-    "resume.rmd",
-    output_file = tmp_html_resume_loc,
-    params = list(pdf_mode = TRUE, lang = "it")
-)
-favicon_fix()
-pagedown::chrome_print(
-    input = tmp_html_resume_loc,
-    output = "cv_resume/resume_it.pdf"
-)
-
+# tmp_html_resume_loc <- fs::file_temp(ext = ".html")
+# rmarkdown::render(
+#     "resume.rmd",
+#     output_file = tmp_html_resume_loc,
+#     params = list(pdf_mode = TRUE, lang = "it")
+# )
+# favicon_fix()
+# pagedown::chrome_print(
+#     input = tmp_html_resume_loc,
+#     output = "cv_resume/resume_it.pdf"
+# )
 
 # CV UNIVERISTY -----------------------------------------------------------
 rmarkdown::render(

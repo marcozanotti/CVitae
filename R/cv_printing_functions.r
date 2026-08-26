@@ -1,18 +1,29 @@
 # Functions that create the CV
 
-# img_clean <- function(img_name = "cvpic.jpeg", img_path = "pics/", format = "png") {
+# img_clean <- function(
+#   img_name = "cvpic.jpeg",
+#   img_path = "pics/",
+#   format = "png"
+# ) {
 #   # "#bdd7e7"
 #   # fuzz = 50 per sign
 #   img_path %>%
 #     paste0(img_name) %>%
 #     magick::image_read() %>%
-#     magick::image_fill(color = "transparent", refcolor = "white", fuzz = 4, point = "+1+1") %>%
+#     magick::image_fill(
+#       color = "transparent",
+#       refcolor = "white",
+#       fuzz = 4,
+#       point = "+1+1"
+#     ) %>%
 #     # magick::image_background(color = "#bdd7e7") %>%
 #     magick::image_crop(geometry = magick::geometry_area(1500, 1850, 0, 0)) %>%
-#     magick::image_write(path = paste0(img_path, gsub("\\.\\w+", "_new\\.", img_name), format), format = format)
-
+#     magick::image_write(
+#       path = paste0(img_path, gsub("\\.\\w+", "_new\\.", img_name), format),
+#       format = format
+#     )
 # }
-# img_clean()
+# img_clean(img_name = "cvpic_half.jpeg")
 
 # create_cv_object <-  function(data_location, resume = FALSE) {
 #
